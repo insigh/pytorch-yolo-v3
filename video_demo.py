@@ -155,7 +155,7 @@ if __name__ == '__main__':
             if type(output) == int:
                 frames += 1
                 print("FPS of the video is {:5.2f}".format( frames / (time.time() - start)))
-                cv2.imshow("frame", orig_im)
+                #cv2.imshow("frame", orig_im)
                 key = cv2.waitKey(1)
                 if key & 0xFF == ord('q'):
                     break
@@ -185,13 +185,6 @@ if __name__ == '__main__':
             #cv2.imshow("frame", orig_im)
             videoWrite.write(orig_im)
 
-            for i in range(65, 196, 5):
-                fileName = './image_target/image' + str(i) + '.jpg'
-                img = cv2.imread(fileName)
-                imgInfo = img.shape
-                videoWrite.write(img)  # 写入方法 1 jpg data
-
-            print('end1')
 
 
             key = cv2.waitKey(1)
