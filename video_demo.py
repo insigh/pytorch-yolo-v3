@@ -121,7 +121,18 @@ if __name__ == '__main__':
     frames = 0
     start = time.time()    
     while cap.isOpened():
-        
+
+        # import cv2
+
+        # img = cv2.imread('./image_target/image65.jpg')
+        # imgInfo = img.shape
+        # size = (imgInfo[1], imgInfo[0])
+
+        fourcc = cv2.VideoWriter_fourcc('M', 'J', 'P', 'G')  # opencv3.0
+        size = (320, 240)
+        videoWrite = cv2.VideoWriter('2.avi', fourcc, 20, size)
+        # 写入对象 1 file name 2 编码器 3 帧率 4 尺寸大小
+
         ret, frame = cap.read()
         if ret:
             
@@ -169,7 +180,18 @@ if __name__ == '__main__':
             list(map(lambda x: write(x, orig_im), output))
             
             
-            cv2.imshow("frame", orig_im)
+            #cv2.imshow("frame", orig_im)
+            videoWrite.write(orig_im)
+
+            for i in range(65, 196, 5):
+                fileName = './image_target/image' + str(i) + '.jpg'
+                img = cv2.imread(fileName)
+                imgInfo = img.shape
+                videoWrite.write(img)  # 写入方法 1 jpg data
+
+            print('end1')
+
+
             key = cv2.waitKey(1)
             if key & 0xFF == ord('q'):
                 break
