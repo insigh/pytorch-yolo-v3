@@ -142,7 +142,7 @@ if __name__ == '__main__':
             if type(output) == int:
                 frames += 1
                 print("FPS of the video is {:5.2f}".format( frames / (time.time() - start)))
-                cv2.imshow("frame", orig_im)
+                #cv2.imshow("frame", orig_im)
                 key = cv2.waitKey(1)
                 if key & 0xFF == ord('q'):
                     break
@@ -169,7 +169,7 @@ if __name__ == '__main__':
             list(map(lambda x: write(x, orig_im), output))
             
             
-            cv2.imshow("frame", orig_im)
+            #cv2.imshow("frame", orig_im)
             key = cv2.waitKey(1)
             if key & 0xFF == ord('q'):
                 break
